@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the number!</title>
+    <style>
+        *{
+            margin:0 auto
+        }
+        body{
+            color:white;
+            text-align:center;
+            background-color:deeppink;
+            width: 100vw;
+            height:100vh;
+        }
+        p{
+            font-size:20px
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="title">Guess the Number!</h1><br>
+        <div class="random">
+            <p id="result"></p>
+        </div>
+        <Button id="btn" onclick="guess()">Start!</Button>
+        <Button id="NewGame" onclick="reset()">Reset score</Button><br><br>
+        <p>Please click reset once you guess the right number ^-^</p>
+    </div>
+
+    <script>
+        var secretnumber = Math.floor(Math.random() * 10 + 1)
+        console.log(secretnumber)
+        var score = 10
+        
+        function guess(){
+        var guess = prompt("Guess any number between 1 to 10")
+        if(guess == secretnumber)
+        {
+            alert("You win!")
+            alert("Your score:" +score)
+        }
+        else if(guess >= secretnumber){
+            alert("Too High!")
+            score--
+        }
+        else if (guess < secretnumber){
+            alert("Too low!")
+            score--
+        }
+     }
+        function reset(){
+            alert("Your game has been reset, please click 'Start!'")
+            score=10
+            secretnumber = Math.trunc(Math.random() * 10)+1
+        }
+
+
+
+
+
+
+
+/* 
+        'use strict'
+
+        let secretnumber = Math.floor(Math.random() * 20)+1
+        let score=20
+        let highscore=0
+
+        const displayMessage = function(message){
+            documennt.querySelector('.message').textContent = message
+        }
+
+        
+        document.querySelector('.check').addEventListener('click', function()){
+        const guess = Number(document.querySelector('.guess').value);
+        console.log( guess, typeof guess);
+
+        if (!guess){
+            displamessage('No Number!')
+        }
+        else if (guess !== secretnumber){
+            if (score > 1){
+                displaymessage(guess . secretnumber ? 'Too high!' : 'Too low!')
+                score--
+                document.querySelector('.score').textContent = score
+            }
+        }
+        else{
+            displaymessage('You lost the game!')
+            document.querySelector('.score').textContent = 0
+        }
+    } */
+    </script>
+    
+</body>
+</html>
